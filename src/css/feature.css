@@ -1,0 +1,12 @@
+.imgDiv{
+    padding: 20px;
+    text-align: center;
+}
+.imgDiv img{
+    width: 180px;
+}
+@media screen and (max-width: 768px) {
+    .swapElement{display:flex;flex-direction:column}
+    .swapChild1{order:2}
+    .swapChild2{order:1}
+}
