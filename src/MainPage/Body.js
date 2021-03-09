@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import {Switch, Route} from "react-router-dom";
 import 'react-intl-tel-input/dist/main.css'
 import Header from "./Header";
@@ -8,19 +8,16 @@ import Pricing from "./Pricing";
 import Features from "./Features";
 import Contact from "./Contact";
 import Login from "./Login";
-import { connect } from "react-redux";
-import {checklogin} from '../Actions';
+import {useDispatch} from "react-redux";
+import {checkLoginStatus} from "../redux/duck/HandleLogin";
 
 
-const mapStateToProps = state => ({
-    currentCount: state.count
-});
 
-const mapDispatchToProps = {
-    checklogin
-};
 function MainBody(props) {
-    props.checklogin()
+    const dispatch = useDispatch();
+    useEffect(function (){
+        dispatch(checkLoginStatus())
+    },[dispatch])
     return (
         <div>
             <Header/>
@@ -37,8 +34,5 @@ function MainBody(props) {
 }
 
 
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(MainBody) ;
+export default MainBody;
 

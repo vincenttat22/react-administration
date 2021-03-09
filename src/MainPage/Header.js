@@ -1,28 +1,30 @@
 import logo from '../logo.svg';
-import React from "react";
+import React, {useState} from "react";
+import {useSelector} from "react-redux";
 
-class SeeInAction extends React.Component {
-    constructor(props) {
-        super(props);
-        this.handleSeeInAction = this.handleSeeInAction.bind(this);
-        this.state = {isInaction: false};
+
+function SeeInAction(props) {
+    const [inaction,setInaction] = useState(false)
+    const handleSeeInAction = () => {
+        setInaction(!inaction);
     }
-
-    handleSeeInAction(e) {
-        this.setState({isInaction: !this.state.isInaction})
-    }
-
-    render() {
-        if (!this.state.isInaction) {
-            return (<button className="btn btn-primary enableHD" onClick={this.handleSeeInAction}>See it in
-                action</button>);
-        } else {
-            return (<button className="btn btn-danger disableHD" onClick={this.handleSeeInAction}><span
-                className="glyphicon glyphicon-remove"></span> Disable HelpDesk </button>);
-        }
+    if (!inaction) {
+        return (<button className="btn btn-primary enableHD" onClick={handleSeeInAction}>See it in
+            action</button>);
+    } else {
+        return (<button className="btn btn-danger disableHD" onClick={handleSeeInAction}><span
+            className="glyphicon glyphicon-remove"></span> Disable HelpDesk </button>);
     }
 }
 
+function NavLoginSection(props) {
+    const auth = useSelector((state)=> state.handleLogin.auth);
+    if (auth) {
+        return (<a className="btn btn-default" href="MyAccount" >My Account</a>);
+    } else {
+        return (<a className="btn btn-default" href="Login" >Login</a>);
+    }
+}
 
 function MainHeader() {
     return (
@@ -48,8 +50,7 @@ function MainHeader() {
                         <SeeInAction/>
                     </li>
                     <li className="nav-item">
-                        <a className="btn btn-default" href="Login" >My HelpDesk
-                        </a>
+                        <NavLoginSection/>
                     </li>
                 </ul>
             </div>
