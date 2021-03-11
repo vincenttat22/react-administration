@@ -21,28 +21,6 @@ function App(props) {
         }
     }, [appDispatch,auth])
 
-    // const columns = React.useMemo(
-    //     () => [
-    //         {
-    //             Header: 'ID',
-    //             accessor: 'id',
-    //         },
-    //         {
-    //             Header: 'Business Name',
-    //             accessor: 'business_name',
-    //         },
-    //         {
-    //             Header: 'Business Type',
-    //             accessor: 'business_type',
-    //         },
-    //         {
-    //             Header: 'Expiry',
-    //             accessor: 'expiry',
-    //         }
-    //     ],
-    //     []
-    // )
-
 
     return (<div className={`hold-transition sidebar-mini layout-fixed ${collapseSidebar}`}>
         <div className="wrapper">
