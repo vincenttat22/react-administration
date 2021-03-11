@@ -1,5 +1,5 @@
 {
-  "name": "snippetcode-messenger",
+  "name": "react-admin",
   "version": "0.1.0",
   "private": true,
   "proxy": "http://localhost:3001",
@@ -27,8 +27,6 @@
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
-    "react-table": "^7.6.3",
-    "react-table-scrollbar": "^0.1.9",
     "react-window": "^1.8.6",
     "redux": "^4.0.5",
     "redux-saga": "^1.1.3",
