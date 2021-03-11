@@ -1,5 +1,5 @@
 import React from "react";
-import './footer.css'
+import '../css/footer.css'
 
 
 function MainFooter() {
@@ -10,11 +10,11 @@ function MainFooter() {
                     <div className="container-fluid">
                         <div className="row">
                             <div className="col-md-3 col-sm-6 footer-col">
-                                <div className="logofooter"> Claydata</div>
-                                <p><i className="fa fa-map-marker"></i> Suite 304, 156 Pacific Highway, St Leonards, NSW
+                                <div className="logofooter"> Vincent</div>
+                                <p><i className="fa fa-map-marker"></i> Hurstville, NSW
                                 </p>
-                                <p><i className="fa fa-phone"></i> Phone : +61294393944.</p>
-                                <p><i className="fa fa-envelope"></i> E-mail : support@claydata.com</p>
+                                <p><i className="fa fa-phone"></i> Phone : 0451121610.</p>
+                                <p><i className="fa fa-envelope"></i> E-mail : vincenttat@live.com</p>
                             </div>
 
                             <div className="col-md-3 col-sm-6 footer-col">
@@ -65,7 +65,7 @@ function MainFooter() {
 
                         </div>
                         <div className="span4">
-                            <p className="muted pull-right">© 2017 Claydata. All rights reserved</p>
+                            <p className="muted pull-right">© 2019 Vincent Tat. All rights reserved</p>
                         </div>
                     </div>
                 </div>

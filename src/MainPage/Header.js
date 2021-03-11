@@ -6,20 +6,6 @@ import Avatar from "react-avatar";
 import '../css/header.css';
 
 
-function SeeInAction(props) {
-    const [inaction,setInaction] = useState(false)
-    const handleSeeInAction = () => {
-        setInaction(!inaction);
-    }
-    if (!inaction) {
-        return (<button className="btn btn-primary enableHD" onClick={handleSeeInAction}>See it in
-            action</button>);
-    } else {
-        return (<button className="btn btn-danger disableHD" onClick={handleSeeInAction}><span
-            className="glyphicon glyphicon-remove"></span> Disable HelpDesk </button>);
-    }
-}
-
 function NavLoginSection(props) {
     const dispatch = useDispatch();
     function logout() {
@@ -62,9 +48,6 @@ function MainHeader() {
                     </li>
                     <li className="nav-item">
                         <a className="nav-link" href="Contact">Contact</a>
-                    </li>
-                    <li className="nav-item">
-                        <SeeInAction/>
                     </li>
                     <li className="nav-item">
                         <NavLoginSection/>

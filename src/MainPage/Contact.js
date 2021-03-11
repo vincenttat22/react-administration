@@ -36,9 +36,9 @@ function Contact() {
                                 our Support Team will get in touch with you shortly. We look forward to hearing from
                                 you.</p>
                             <h3>Questions?</h3>
-                            <p>Call us at +61 2 94393944.</p>
+                            <p>Call us at +61 450121610.</p>
                             <h3>Office Locations</h3>
-                            <p>Suite 304, 156 Pacific Highway, St Leonards, NSW </p>
+                            <p>Hurstville, NSW </p>
                         </div>
                     </div>
                 </div>
