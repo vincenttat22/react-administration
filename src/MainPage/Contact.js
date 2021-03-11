@@ -1,8 +1,11 @@
 import React from "react";
 import IntlTelInput from "react-intl-tel-input";
+import Header from "./Header";
+import Footer from "./Footer";
 
 function Contact() {
     return <div>
+        <Header/>
         <div className="midpanel">
             <div className="container-fluid midMobileMode">
                 <div className="row">
@@ -41,6 +44,7 @@ function Contact() {
                 </div>
             </div>
         </div>
+        <Footer/>
     </div>;
 }
 

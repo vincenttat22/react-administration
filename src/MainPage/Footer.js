@@ -4,8 +4,8 @@ import './footer.css'
 
 function MainFooter() {
     return (
-        <div>
-            <div className="main-footer container-fluid">
+        <div style={{background:"#25AAE1"}}>
+            <div className="container-fluid">
                 <footer>
                     <div className="container-fluid">
                         <div className="row">

@@ -1,6 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import 'jquery';
+import 'bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
+import '@fortawesome/fontawesome-free'
 import  './css/MainPage.css'
 import  './css/pricing.css'
 import  './css/feature.css'

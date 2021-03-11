@@ -1,10 +1,13 @@
 import React from "react";
+import Header from "./Header";
+import Footer from "./Footer";
 
 function Pricing() {
   function redirectUrlOnClick(url,e) {
     window.open('/'+url,'_blank')
   }
   return <div>
+    <Header/>
     <div className="toppanel">
       <div className="container-fluid" style={{maxWidth: "1000px", textAlign: "center", font: "message-box"}}>
         <h1>Plans and <span style={{color: "yellow"}}>Pricing</span></h1>
@@ -12,8 +15,6 @@ function Pricing() {
         <button className="btn btn-warning" onClick={redirectUrlOnClick.bind(this,'signup')}>Sign up for free trail
         </button>
       </div>
-    </div>
-    <div className="toppanel">
     </div>
     <div className="midpanel">
       <div className="container-fluid" style={{maxWidth: "1000px", paddingTp: "20px"}}>
@@ -64,7 +65,6 @@ function Pricing() {
           </ul>
         </div>
       </div>
-      <hr style={{background: "darkgray"}}/>
       <div className="container-fluid" style={{maxWidth: "1000px", paddingBottom: "20px"}}>
         <h2 className="text-center home-title" style={{fontWeight: "bold"}}>FAQs</h2>
         <div className="row">
@@ -116,6 +116,7 @@ function Pricing() {
         </div>
       </div>
     </div>
+    <Footer/>
   </div>;
 }
 

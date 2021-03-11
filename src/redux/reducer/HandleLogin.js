@@ -1,8 +1,14 @@
 export const CHECKLOGINSTATUS = "CHECKLOGINSTATUS";
+export const PROCESSLOGOUT = "PROCESSLOGOUT";
 const SETLOGINSTATUS = "SETLOGINSTATUS";
 export const PROCESSLOGIN = "PROCESSLOGIN";
 const SETUSERPROFILE = "SETUSERPROFILE";
 
+
+
+export const processLogout = function () {
+    return {type:PROCESSLOGOUT}
+};
 
 export const checkLoginStatus = function () {
     return {type:CHECKLOGINSTATUS}
@@ -20,10 +26,12 @@ export const setUserProfile = function (auth,user) {
     return {type:SETUSERPROFILE,auth,user}
 }
 
+
 const initialState = {
-    auth: false,
+    auth: true,
     msg: "",
-    userProfile: {}
+    userProfile: {},
+    keys:[]
 };
 
 function HandleLogin(state = initialState,action) {

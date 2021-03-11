@@ -1,7 +1,11 @@
+import Header from "./Header";
+import React from "react";
+import Footer from "./Footer";
 
 function Home() {
   return <div>
-    <div className="toppanel">
+    <Header/>
+    <div className="toppanel" >
       <div className="container-fluid" style={{maxWidth: "1000px"}}>
         <div className="row">
           <div className="col-lg-6 col-sm-12">
@@ -17,8 +21,6 @@ function Home() {
           </div>
         </div>
       </div>
-    </div>
-    <div className="toppanel">
     </div>
     <div className="midpanel">
       <div className="container-fluid" style={{maxWidth: "1000px"}}>
@@ -129,6 +131,7 @@ function Home() {
       </div>
 
     </div>
+    <Footer/>
   </div>;
 }
 

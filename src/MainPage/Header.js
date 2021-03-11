@@ -1,6 +1,9 @@
 import logo from '../logo.svg';
 import React, {useState} from "react";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
+import {processLogout} from "../redux/reducer/HandleLogin";
+import Avatar from "react-avatar";
+import '../css/header.css';
 
 
 function SeeInAction(props) {
@@ -18,17 +21,31 @@ function SeeInAction(props) {
 }
 
 function NavLoginSection(props) {
+    const dispatch = useDispatch();
+    function logout() {
+        dispatch(processLogout());
+    }
     const auth = useSelector((state)=> state.handleLogin.auth);
     if (auth) {
-        return (<a className="btn btn-default" href="MyAccount" >My Account</a>);
+        return (<div className="dropdown">
+            <div className="" type="button" id="dropdownMenuButton"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <Avatar name="Wim Mostmans" size="35" round={true}/>
+            </div>
+            <div className="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                <a className="dropdown-item" href="/app">My Account</a>
+                <div className="dropdown-item" onClick={logout}>Lgout</div>
+            </div>
+        </div>);
     } else {
         return (<a className="btn btn-default" href="Login" >Login</a>);
     }
 }
 
+
 function MainHeader() {
     return (
-        <nav className="navbar navbar-expand-lg navbar-light bg-light" style={{top: "0px"}}>
+        <nav className="nav-main-page navbar navbar-expand-lg navbar-light bg-light" style={{top: "0px"}}>
             <a className="navbar-brand" href="./" style={{marginTop: "-15px"}}><img style={{height: '40px'}}
                                                                                       src={logo} alt=""/></a>
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"

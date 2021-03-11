@@ -1,10 +1,13 @@
 import React from "react";
+import Header from "./Header";
+import Footer from "./Footer";
 
 function Features() {
     function redirectUrlOnClick(url,e) {
         window.open('/'+url,'_blank')
     }
     return <div>
+        <Header/>
         <div className="toppanel">
             <div className="container-fluid" style={{maxWidth: "1000px", textAlign: "center", font: "message-box"}}>
                 <h1>Integrate HelpDesk to your Business website</h1>
@@ -68,6 +71,7 @@ function Features() {
                 </div>
             </div>
         </div>
+        <Footer/>
     </div>;
 }
 
