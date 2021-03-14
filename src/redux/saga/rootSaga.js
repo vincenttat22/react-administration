@@ -1,12 +1,11 @@
 import {takeLatest} from "redux-saga/effects";
+import {ActionTypes} from '../reducer/AppReducer'
 import {checkUserLogin, handleProcessLogin, handleProcessLogout} from "./handlers/loginHandler";
-import {CHECKLOGINSTATUS, PROCESSLOGIN, PROCESSLOGOUT} from '../reducer/HandleLogin'
-import {GETKEY} from '../reducer/AppReducer'
-import {getKeyHandler} from "./handlers/appHandler";
+import {getCuisineHandler} from "./handlers/appHandler";
 
 export function* watcherSaga() {
-    yield takeLatest(CHECKLOGINSTATUS,checkUserLogin);
-    yield takeLatest(PROCESSLOGIN,handleProcessLogin);
-    yield takeLatest(PROCESSLOGOUT,handleProcessLogout);
-    yield takeLatest(GETKEY,getKeyHandler);
+    yield takeLatest(ActionTypes.CHECKLOGINSTATUS,checkUserLogin);
+    yield takeLatest(ActionTypes.PROCESSLOGIN,handleProcessLogin);
+    yield takeLatest(ActionTypes.PROCESSLOGOUT,handleProcessLogout);
+    yield takeLatest(ActionTypes.GETCUISINE,getCuisineHandler);
 }

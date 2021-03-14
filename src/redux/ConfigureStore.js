@@ -1,10 +1,8 @@
 import {applyMiddleware, combineReducers, createStore} from "redux";
-import handleLoginReducer from './reducer/HandleLogin';
 import AppReducer from './reducer/AppReducer';
 import createSagaMiddleware from 'redux-saga';
 import {watcherSaga} from "./saga/rootSaga";
 const reducers = combineReducers({
-    handleLogin: handleLoginReducer,
     appReducer: AppReducer
 });
 

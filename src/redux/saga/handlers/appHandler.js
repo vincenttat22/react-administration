@@ -1,11 +1,12 @@
 import {call,put} from "redux-saga/effects";
-import {getKeyRequest} from "../requests/appRequest";
-import {setKeys} from "../../reducer/AppReducer";
+import {getCuisineRequest} from "../requests/appRequest";
+import {ActionCreators} from "../../reducer/AppReducer";
 
-export function* getKeyHandler() {
+
+export function* getCuisineHandler() {
     try {
-        const response = yield call(getKeyRequest);
-        yield put(setKeys(response.data));
+        const response = yield call(getCuisineRequest);
+        yield put(ActionCreators.setCuisine(response.data));
     } catch (error) {
         console.log(error)
     }

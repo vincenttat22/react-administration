@@ -1,22 +1,24 @@
 import logo from '../logo.svg';
 import serialize from 'form-serialize'
 import {useDispatch, useSelector} from "react-redux";
-import {processLogin} from '../redux/reducer/HandleLogin'
+import {ActionCreators} from '../redux/reducer/AppReducer'
 import Header from "./Header";
 import React, {useEffect} from "react";
 import Footer from "./Footer";
 
 function Login(props) {
     const dispatch = useDispatch();
-    const loginDetail = useSelector((state) => state.handleLogin);
+    const loginDetail = useSelector((state) => state.appReducer);
     function SubmitLogin(event) {
         event.preventDefault();
         const body = serialize(event.target, {hash: true, empty: true})
-        dispatch(processLogin(body));
+        console.log(ActionCreators)
+        dispatch(ActionCreators.processLogin(body));
     }
 
     useEffect(() => {
-        if (loginDetail.auth) {
+        console.log(loginDetail)
+        if (loginDetail != undefined && loginDetail.auth) {
             // const userProfile = JSON.parse(localStorage.getItem("userProfile"));
             props.history.push(`app`)
         }

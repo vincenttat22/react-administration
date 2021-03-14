@@ -2,21 +2,21 @@ import Avatar from "react-avatar";
 import React from "react";
 import logo from "../logo.svg";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {faCalendar, faPowerOff} from '@fortawesome/free-solid-svg-icons'
-import {processLogout} from "../redux/reducer/HandleLogin";
+import {faCalendar, faPowerOff, faHamburger} from '@fortawesome/free-solid-svg-icons'
+import {ActionCreators} from "../redux/reducer/AppReducer";
 import {useDispatch} from "react-redux";
 import adminCSS from '../css/adminlte.min.css'
 
 function SideBar(props) {
     const dispatch = useDispatch();
     function logout() {
-        dispatch(processLogout());
+        dispatch(ActionCreators.processLogout());
     }
     return (
         <aside className="main-sidebar sidebar-dark-primary elevation-4">
             <a href="index3.html" className="brand-link">
                 <img style={{height: '40px'}} src={logo} alt=""/>
-                    <span className="brand-text font-weight-light">AdminLTE 3</span>
+                    <span className="brand-text font-weight-light">My Restaurant</span>
             </a>
 
             <div className="sidebar">
@@ -30,13 +30,22 @@ function SideBar(props) {
                 </div>
 
                 <nav className="mt-2">
-                    <ul className="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+                    <ul className="nav nav-pills nav-sidebar flex-column" role="menu"
                         data-accordion="false">
                         <li className="nav-item">
-                            <a href="app/calendar" className="nav-link">
+                            <a href="/app/cuisine" className="nav-link">
+                                <FontAwesomeIcon icon={faHamburger} className="nav-icon " />
+                                <p>
+                                    Cuisine
+                                    {/*<span className="right badge badge-danger">New</span>*/}
+                                </p>
+                            </a>
+                        </li>
+                        <li className="nav-item">
+                            <a href="/app/booking" className="nav-link">
                                 <FontAwesomeIcon icon={faCalendar} className="nav-icon " />
                                 <p>
-                                    Calendar
+                                    Booking
                                     {/*<span className="right badge badge-danger">New</span>*/}
                                 </p>
                             </a>

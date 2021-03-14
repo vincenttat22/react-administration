@@ -1,7 +1,7 @@
 import logo from '../logo.svg';
-import React, {useState} from "react";
+import React from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {processLogout} from "../redux/reducer/HandleLogin";
+import {ActionCreators} from "../redux/reducer/AppReducer";
 import Avatar from "react-avatar";
 import '../css/header.css';
 
@@ -9,9 +9,9 @@ import '../css/header.css';
 function NavLoginSection(props) {
     const dispatch = useDispatch();
     function logout() {
-        dispatch(processLogout());
+        dispatch(ActionCreators.processLogout());
     }
-    const auth = useSelector((state)=> state.handleLogin.auth);
+    const auth = useSelector((state)=> state.appReducer.auth);
     if (auth) {
         return (<div className="dropdown">
             <div className="" type="button" id="dropdownMenuButton"

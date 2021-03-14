@@ -1,9 +1,10 @@
 import axios from 'axios';
 
-export function getKeyRequest() {
+
+export function getCuisineRequest() {
     return axios.request({
         method:"get",
-        url:"/getKeys"
+        url:"/getCuisine"
     })
 }
 

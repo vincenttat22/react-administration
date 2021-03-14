@@ -8,13 +8,12 @@ import Contact from "./Contact";
 import Login from "./Login";
 import MyAccount from "../MyAccount/App";
 import {useDispatch} from "react-redux";
-import {checkLoginStatus} from "../redux/reducer/HandleLogin";
-
+import {ActionCreators} from "../redux/reducer/AppReducer";
 
 function MainBody(props) {
     const dispatch = useDispatch();
     useEffect(function (){
-        dispatch(checkLoginStatus())
+        dispatch(ActionCreators.checkLoginStatus())
     },[dispatch])
     return (
         <div>

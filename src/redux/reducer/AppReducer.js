@@ -1,28 +1,43 @@
-const SETKEYS = "SETKEYS";
-export const GETKEY = "GETKEY";
-
-
-
-export const setKeys = function (data) {
-    return {type:SETKEYS,data}
-}
-
-export const getKey = function () {
-    return {type:GETKEY}
-}
-
 const initialState = {
-    auth: false,
+    auth: true,
     msg: "",
-    keys:[]
+    userProfile: {},
+    cuisine:[]
 };
+
+
+export const ActionTypes = {
+    SETCUISINE:"SETCUISINE",
+    GETCUISINE:"GETCUISINE",
+    CHECKLOGINSTATUS: "CHECKLOGINSTATUS",
+    PROCESSLOGOUT: "PROCESSLOGOUT",
+    SETLOGINSTATUS: "SETLOGINSTATUS",
+    PROCESSLOGIN: "PROCESSLOGIN",
+    SETUSERPROFILE: "SETUSERPROFILE"
+
+}
+
+export const ActionCreators = {
+    setCuisine: data => ({type:ActionTypes.SETCUISINE,data}),
+    getCuisine: () => ({type:ActionTypes.GETCUISINE}),
+    processLogout: () => ({type:ActionTypes.PROCESSLOGOUT}),
+    checkLoginStatus: () => ({type:ActionTypes.CHECKLOGINSTATUS}),
+    setLoginStatus: (auth,msg) => ({type:ActionTypes.SETLOGINSTATUS,auth,msg}),
+    processLogin: (loginData) => ({type:ActionTypes.PROCESSLOGIN,loginData}),
+    setUserProfile: (auth,user) => ({type:ActionTypes.SETUSERPROFILE,auth,user})
+}
+
 
 function AppReducer(state = initialState,action) {
     switch (action.type) {
-        case SETKEYS:
-            return {...state,...action.data };
+        case ActionTypes.SETLOGINSTATUS:
+            return {...state,auth:action.auth,msg:action.msg};
+        case ActionTypes.PROCESSLOGIN:
+            return {...state,...action.loginData };
+        case ActionTypes.SETUSERPROFILE:
+            return {...state,auth:action.auth, ...action.user };
         default:
-            return state
+            return {...state,...action.data };
     }
 }
 export default AppReducer;
