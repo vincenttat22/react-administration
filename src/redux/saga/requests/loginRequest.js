@@ -10,6 +10,10 @@ export function proccessLoginRequest(loginData) {
     return axios.post('/processLogin', loginData)
 }
 
+export function proccessSignupRequest(signupData) {
+    return axios.post('/processSignup', signupData)
+}
+
 export function processLogoutRequest() {
     return axios.request({
         method:"get",

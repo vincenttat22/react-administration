@@ -59,3 +59,9 @@ img.img-responsive2 {
     background: #F3F6F7;
     color: #5C5C5C;
 }
+
+@-moz-document url-prefix() {
+    .main-header {
+        width: -moz-available;
+    }
+}

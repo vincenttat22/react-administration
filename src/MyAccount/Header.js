@@ -7,10 +7,10 @@ import { faComment,faTimes,faSearch,faBell,faEnvelope,faUser,faFile,faBars } fro
 function MainHeader(props) {
 
     return (
-        <nav className="main-header navbar navbar-expand navbar-white navbar-light">
+        <nav className="main-header navbar navbar-expand navbar-white navbar-light" style={{position:"fixed",width:"-webkit-fill-available"}}>
             <ul className="navbar-nav">
                 <li className="nav-item">
-                    <a className="nav-link" onClick={props.OnCollapseSidebar} role="button"><FontAwesomeIcon icon={faBars} /></a>
+                    <div className="nav-link" onClick={props.OnCollapseSidebar} role="button"><FontAwesomeIcon icon={faBars} /></div>
                 </li>
             </ul>
 
@@ -34,37 +34,37 @@ function MainHeader(props) {
                     </div>
                 </li>
                 <li className="nav-item dropdown">
-                    <a className="nav-link" data-toggle="dropdown" href="#">
+                    <div className="nav-link" data-toggle="dropdown" >
                         <FontAwesomeIcon icon={faBell} />
                         <span className="badge badge-warning navbar-badge">15</span>
-                    </a>
+                    </div>
                     <div className="dropdown-menu dropdown-menu-lg dropdown-menu-right">
                         <span className="dropdown-item dropdown-header">15 Notifications</span>
                         <div className="dropdown-divider"></div>
-                        <a href="#" className="dropdown-item">
+                        <div className="dropdown-item">
                             <FontAwesomeIcon icon={faEnvelope} /> 4 new messages
                             <span className="float-right text-muted text-sm">3 mins</span>
-                        </a>
+                        </div>
                         <div className="dropdown-divider"></div>
-                        <a href="#" className="dropdown-item">
+                        <div className="dropdown-item">
                             <FontAwesomeIcon icon={faUser} /> 8 friend requests
                             <span className="float-right text-muted text-sm">12 hours</span>
-                        </a>
+                        </div>
                         <div className="dropdown-divider"></div>
-                        <a href="#" className="dropdown-item">
+                        <div className="dropdown-item">
                             <FontAwesomeIcon icon={faFile} /> 3 new reports
                             <span className="float-right text-muted text-sm">2 days</span>
-                        </a>
+                        </div>
                         <div className="dropdown-divider"></div>
-                        <a href="#" className="dropdown-item dropdown-footer">See All Notifications</a>
+                        <div className="dropdown-item dropdown-footer">See All Notifications</div>
                     </div>
                 </li>
                 <li className="nav-item">
-                    <a className="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
+                    <div className="nav-link" data-widget="control-sidebar" data-slide="true" role="button">
                         {/*<i className="far fa-comments"></i>*/}
                         <FontAwesomeIcon icon={faComment} />
                         <span className="badge badge-danger navbar-badge">3</span>
-                    </a>
+                    </div>
                 </li>
             </ul>
         </nav>

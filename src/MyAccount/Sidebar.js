@@ -1,20 +1,28 @@
 import Avatar from "react-avatar";
-import React from "react";
+import React, {useEffect, useState} from "react";
 import logo from "../logo.svg";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faCalendar, faPowerOff, faHamburger} from '@fortawesome/free-solid-svg-icons'
 import {ActionCreators} from "../redux/reducer/AppReducer";
-import {useDispatch} from "react-redux";
-import adminCSS from '../css/adminlte.min.css'
+import {useDispatch, useSelector} from "react-redux";
+import '../css/adminlte.min.css'
 
 function SideBar(props) {
     const dispatch = useDispatch();
+    const appReducerUpdate = useSelector(state => state.appReducer);
+    const [userProfile,setUserProfile] = useState({id:"",email:"",first_name:"",last_name:""});
+    useEffect(()=> {
+        let myProfile = JSON.parse(localStorage.getItem("userProfile"));
+        if(myProfile !== undefined) {
+            setUserProfile(myProfile)
+        }
+    },[appReducerUpdate])
     function logout() {
         dispatch(ActionCreators.processLogout());
     }
     return (
         <aside className="main-sidebar sidebar-dark-primary elevation-4">
-            <a href="index3.html" className="brand-link">
+            <a href="/app" className="brand-link">
                 <img style={{height: '40px'}} src={logo} alt=""/>
                     <span className="brand-text font-weight-light">My Restaurant</span>
             </a>
@@ -22,10 +30,10 @@ function SideBar(props) {
             <div className="sidebar">
                 <div className="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div className="image">
-                        <Avatar name="Wim Mostmans" size="35" round={true}/>
+                        <Avatar name={userProfile.first_name+" "+userProfile.last_name} size="35" round={true}/>
                     </div>
                     <div className="info">
-                        <a href="#" className="d-block">Alexander Pierce</a>
+                        <div style={{color:"white"}} className="d-block">{userProfile.first_name} {userProfile.last_name}</div>
                     </div>
                 </div>
 
@@ -52,7 +60,7 @@ function SideBar(props) {
                         </li>
                         <li className="nav-header"></li>
                         <li className="nav-item">
-                            <a href="#" onClick={logout} className="nav-link">
+                            <a href="/login" onClick={logout} className="nav-link">
                                 <FontAwesomeIcon icon={faPowerOff}  className="nav-icon " />
                                 <p>
                                     Logout

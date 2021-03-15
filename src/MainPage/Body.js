@@ -6,6 +6,7 @@ import Pricing from "./Pricing";
 import Features from "./Features";
 import Contact from "./Contact";
 import Login from "./Login";
+import Signup from "./Signup";
 import MyAccount from "../MyAccount/App";
 import {useDispatch} from "react-redux";
 import {ActionCreators} from "../redux/reducer/AppReducer";
@@ -23,6 +24,7 @@ function MainBody(props) {
                 <Route exact path="/Features" component={Features} />
                 <Route exact path="/Contact" component={Contact} />
                 <Route exact path="/Login" component={Login} />
+                <Route exact path="/Signup" component={Signup} />
                 <Route path="/app" component={MyAccount} />
             </Switch>
         </div>

@@ -1,5 +1,5 @@
 import {call,put} from "redux-saga/effects";
-import {checkUserLoginRequest,proccessLoginRequest,processLogoutRequest} from "../requests/loginRequest";
+import {checkUserLoginRequest,proccessLoginRequest,processLogoutRequest,proccessSignupRequest} from "../requests/loginRequest";
 import {ActionCreators} from "../../reducer/AppReducer";
 
 export function* checkUserLogin() {
@@ -25,12 +25,29 @@ export function* handleProcessLogout() {
 
 export function* handleProcessLogin(action) {
     try {
-        console.log(action)
         const response = yield call(proccessLoginRequest,action.loginData);
         const {auth,msg,userProfile} = response.data;
         if(auth) {
             localStorage.setItem("userProfile",JSON.stringify(userProfile));
             yield put(ActionCreators.setUserProfile(auth,userProfile));
+        } else {
+            yield put(ActionCreators.setLoginStatus(auth,msg));
+        }
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+export function* handleProcessSignup(action) {
+    try {
+        console.log(action)
+        const response = yield call(proccessSignupRequest,action.signupData);
+        const {auth,msg,userProfile} = response.data;
+        if(auth) {
+            localStorage.setItem("userProfile",JSON.stringify(userProfile));
+            yield put(ActionCreators.setUserProfile(auth,userProfile));
+            action.history.push("/app")
+            // yield put(push('/app'));
         } else {
             yield put(ActionCreators.setLoginStatus(auth,msg));
         }
