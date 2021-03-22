@@ -14,7 +14,8 @@ export function* checkUserLogin() {
 export function* processVerifyEmail(action) {
     try {
         const response = yield call(processVerifyEmailRequest,action);
-        yield put(ActionCreators.setLoginStatus(response.data));
+        const responseBody = yield response.json();
+        yield put(ActionCreators.setLoginStatus(responseBody));
     } catch (error) {
         console.log(error)
     }
@@ -23,7 +24,8 @@ export function* processVerifyEmail(action) {
 export function* handleProcessLogout() {
     try {
         const response = yield call(processLogoutRequest);
-        const {auth,msg} = response.data;
+        const responseBody = yield response.json();
+        const {auth,msg} = responseBody;
         localStorage.removeItem("userProfile");
         yield put(ActionCreators.setLoginStatus(auth,msg));
     } catch (error) {
@@ -34,7 +36,8 @@ export function* handleProcessLogout() {
 export function* handleProcessLogin(action) {
     try {
         const response = yield call(proccessLoginRequest,action.loginData);
-        const {auth,msg,userProfile} = response.data;
+        const responseBody = yield response.json();
+        const {auth,msg,userProfile} = responseBody;
         if(auth) {
             localStorage.setItem("userProfile",JSON.stringify(userProfile));
             yield put(ActionCreators.setUserProfile(auth,userProfile));

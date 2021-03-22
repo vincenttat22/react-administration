@@ -1,23 +1,20 @@
-import axios from 'axios';
-const apiURL = "//api.vincentlab.xyz:3001";
+const apiURL = "http://api.vincentlab.xyz:3001";
 export function checkUserLoginRequest() {
     return fetch(apiURL+"/checkLogin")
 
 }
 export function processVerifyEmailRequest(loginData) {
-    return axios.post(apiURL+'/processVerifyEmail', loginData)
+    return  fetch(apiURL+'/processVerifyEmail',{method:"POST",body:JSON.stringify(loginData)})
+    // return axios.post(apiURL+'/processVerifyEmail', loginData)
 }
 export function proccessLoginRequest(loginData) {
-    return axios.post(apiURL+'/processLogin', loginData)
+    return  fetch(apiURL+'/processLogin',{method:"POST",body:JSON.stringify(loginData)})
 }
 
 export function proccessSignupRequest(signupData) {
-    return axios.post(apiURL+'/processSignup', signupData)
+    return  fetch(apiURL+'/processSignup',{method:"POST",body:JSON.stringify(signupData)})
 }
 
 export function processLogoutRequest() {
-    return axios.request({
-        method:"get",
-        url:apiURL+"/logout"
-    })
+    return fetch(apiURL+"/logout")
 }
