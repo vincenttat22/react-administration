@@ -5,8 +5,15 @@ import {ActionCreators} from "../../reducer/AppReducer";
 export function* checkUserLogin() {
     try {
         const response = yield call(checkUserLoginRequest);
-        const {auth,msg} = response.data;
-        yield put(ActionCreators.setLoginStatus(auth,msg));
+        yield put(ActionCreators.setLoginStatus(response.data));
+    } catch (error) {
+        console.log(error)
+    }
+}
+export function* processVerifyEmail(action) {
+    try {
+        const response = yield call(processVerifyEmailRequest,action);
+        yield put(ActionCreators.setLoginStatus(response.data));
     } catch (error) {
         console.log(error)
     }

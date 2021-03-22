@@ -1,5 +1,6 @@
 const initialState = {
     auth: undefined,
+    is_verified: true,
     msg: "",
     userProfile: {},
     cuisine:[]
@@ -25,7 +26,7 @@ export const ActionCreators = {
     addCuisine: data => ({type:ActionTypes.ADDCUISINE,data}),
     processLogout: () => ({type:ActionTypes.PROCESSLOGOUT}),
     checkLoginStatus: () => ({type:ActionTypes.CHECKLOGINSTATUS}),
-    setLoginStatus: (auth,msg) => ({type:ActionTypes.SETLOGINSTATUS,auth,msg}),
+    setLoginStatus: (data) => ({type:ActionTypes.SETLOGINSTATUS,data}),
     processLogin: (loginData) => ({type:ActionTypes.PROCESSLOGIN,loginData}),
     processSignup: (history,signupData) => ({type:ActionTypes.PROCESSSIGNUP,history,signupData}),
     setUserProfile: (auth,user) => ({type:ActionTypes.SETUSERPROFILE,auth,user})
@@ -35,7 +36,7 @@ export const ActionCreators = {
 function AppReducer(state = initialState,action) {
     switch (action.type) {
         case ActionTypes.SETLOGINSTATUS:
-            return {...state,auth:action.auth,msg:action.msg};
+            return {...state,...action.data};
         case ActionTypes.PROCESSLOGIN:
             return {...state,...action.loginData };
         case ActionTypes.SETUSERPROFILE:

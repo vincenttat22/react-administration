@@ -9,6 +9,7 @@ import alertify from 'alertifyjs';
 import 'alertifyjs/build/css/alertify.css';
 import {ActionCreators} from "../redux/reducer/AppReducer";
 import {useDispatch, useSelector} from "react-redux";
+import {useLocation} from "react-router";
 
 function GridView(props) {
     return (<div className="container-fluid">
@@ -70,10 +71,12 @@ export default function Cuisine(props) {
     const [files, setFiles] = useState([]);
     const cuisineDispatch  = useDispatch();
     const cuisineData = useSelector((state)=> state.appReducer.cuisine);
-
+    const pathname = useLocation()
     useEffect(() => {
-        cuisineDispatch(ActionCreators.getCuisine());
-    }, [cuisineDispatch])
+        if(pathname.pathname !== "/app/cuisine") {
+            cuisineDispatch(ActionCreators.getCuisine());
+        }
+    }, [])
 
     function switchView() {
         setDefaultView(!defaultView);
@@ -102,43 +105,41 @@ export default function Cuisine(props) {
 
     return (
         <>
-            <div className="content-wrapper">
-                <div className="content-header">
-                    <div className="container-fluid">
-                        <div className="row mb-2">
-                            <div className="col-sm-6">
-                                <h1 className="m-0">Cuisine</h1>
-                            </div>
+            <div className="content-header">
+                <div className="container-fluid">
+                    <div className="row mb-2">
+                        <div className="col-sm-6">
+                            <h1 className="m-0">Cuisine</h1>
                         </div>
                     </div>
                 </div>
-                <section className="content">
-                    <div className="container-fluid" style={{marginBottom: "10px"}}>
-                        <div className="row">
-                            <div className="col-sm-6">
-                                <div className="btn-group btn-group-toggle" data-toggle="buttons">
-                                    <label className="btn btn-default" style={defaultView ? defaultBtnStyle : {}}>
-                                        <input type="radio" name="options" id="option1" autoComplete="off" defaultChecked={defaultView} onChange={switchView}/> <FontAwesomeIcon
-                                        icon={faTh} className="nav-icon "/> Grid View
+            </div>
+            <section className="content">
+                <div className="container-fluid" style={{marginBottom: "10px"}}>
+                    <div className="row">
+                        <div className="col-sm-6">
+                            <div className="btn-group btn-group-toggle" data-toggle="buttons">
+                                <label className="btn btn-default" style={defaultView ? defaultBtnStyle : {}}>
+                                    <input type="radio" name="options" id="option1" autoComplete="off" defaultChecked={defaultView} onChange={switchView}/> <FontAwesomeIcon
+                                    icon={faTh} className="nav-icon "/> Grid View
 
-                                    </label>
-                                    <label className="btn btn-default" style={!defaultView ? defaultBtnStyle : {}}>
-                                        <input type="radio" name="options" id="option2" autoComplete="off"
-                                               defaultChecked={!defaultView} onChange={switchView}/> <FontAwesomeIcon
-                                        icon={faList} className="nav-icon "/> List View
-                                    </label>
-                                </div>
-                                <button type="button" style={{marginLeft: "10px"}} className="btn btn-primary"
-                                        onClick={handleShowAddNew}><FontAwesomeIcon icon={faPlus}/> Add New
-                                </button>
+                                </label>
+                                <label className="btn btn-default" style={!defaultView ? defaultBtnStyle : {}}>
+                                    <input type="radio" name="options" id="option2" autoComplete="off"
+                                           defaultChecked={!defaultView} onChange={switchView}/> <FontAwesomeIcon
+                                    icon={faList} className="nav-icon "/> List View
+                                </label>
                             </div>
+                            <button type="button" style={{marginLeft: "10px"}} className="btn btn-primary"
+                                    onClick={handleShowAddNew}><FontAwesomeIcon icon={faPlus}/> Add New
+                            </button>
                         </div>
                     </div>
-                    {
-                        defaultView ? <GridView cuisine={cuisineData}/> : <ListView cuisine={cuisineData}/>
-                    }
-                </section>
-            </div>
+                </div>
+                {
+                    defaultView ? <GridView cuisine={cuisineData}/> : <ListView cuisine={cuisineData}/>
+                }
+            </section>
             <Modal show={showAddNew} onHide={handleCloseAddNew}>
                 <Modal.Header closeButton>
                     <Modal.Title>Add Cuisine</Modal.Title>

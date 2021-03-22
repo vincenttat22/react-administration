@@ -7,6 +7,8 @@ import Features from "./Features";
 import Contact from "./Contact";
 import Login from "./Login";
 import Signup from "./Signup";
+import Page404 from "./Page404";
+import VCode from "./vcode";
 import MyAccount from "../MyAccount/App";
 import {useDispatch} from "react-redux";
 import {ActionCreators} from "../redux/reducer/AppReducer";
@@ -25,7 +27,9 @@ function MainBody(props) {
                 <Route exact path="/Contact" component={Contact} />
                 <Route exact path="/Login" component={Login} />
                 <Route exact path="/Signup" component={Signup} />
+                <Route path="/vcode/:vcodeid?" component={VCode} />
                 <Route path="/app" component={MyAccount} />
+                <Route component={Page404} />
             </Switch>
         </div>
     );

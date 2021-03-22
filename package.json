@@ -2,7 +2,7 @@
   "name": "react-admin",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:3001",
+  "proxy": "http://vincentlab.xyz:3001",
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.2",
     "@fortawesome/fontawesome-svg-core": "^1.2.34",
@@ -29,6 +29,7 @@
     "react-dropzone": "^11.3.1",
     "react-google-recaptcha": "^2.1.0",
     "react-intl-tel-input": "^8.0.4",
+    "react-paginate": "^7.1.0",
     "react-phone-number-input": "^3.1.16",
     "react-redux": "^7.2.2",
     "react-router": "^5.2.0",

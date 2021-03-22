@@ -6,6 +6,9 @@ export function checkUserLoginRequest() {
         url:"/checkLogin"
     })
 }
+export function processVerifyEmailRequest(loginData) {
+    return axios.post('/processVerifyEmail', loginData)
+}
 export function proccessLoginRequest(loginData) {
     return axios.post('/processLogin', loginData)
 }

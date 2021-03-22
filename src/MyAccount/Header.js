@@ -1,16 +1,30 @@
-
 import {withRouter} from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faComment,faTimes,faSearch,faBell,faEnvelope,faUser,faFile,faBars } from '@fortawesome/free-solid-svg-icons'
+import axios from 'axios';
 
 
 function MainHeader(props) {
+    function sendNow() {
+        fetch("/sendNow")
+            .then(res => res.json())
+            .then(
+                (result) => {
 
+                },
+                (error) => {
+
+                }
+            )
+    }
     return (
-        <nav className="main-header navbar navbar-expand navbar-white navbar-light" style={{position:"fixed",width:"-webkit-fill-available"}}>
+        <nav className="main-header navbar navbar-expand navbar-white navbar-light" style={{position:"fixed",top:"0px",width:"-webkit-fill-available"}}>
             <ul className="navbar-nav">
                 <li className="nav-item">
                     <div className="nav-link" onClick={props.OnCollapseSidebar} role="button"><FontAwesomeIcon icon={faBars} /></div>
+                </li>
+                <li className="nav-item">
+                    <button className="btn btn-primary" onClick={sendNow}>Send Now</button>
                 </li>
             </ul>
 
