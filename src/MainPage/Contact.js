@@ -1,7 +1,8 @@
 import React from "react";
-import IntlTelInput from "react-intl-tel-input";
 import Header from "./Header";
 import Footer from "./Footer";
+import PhoneInput from 'react-phone-input-2'
+import 'react-phone-input-2/lib/style.css'
 
 function Contact() {
     return <div>
@@ -17,7 +18,7 @@ function Contact() {
                                 <br/>
                                 <input type="text" className="form-control" placeholder="Email"/>
                                 <br/>
-                                <IntlTelInput preferredCountries={['au']} onPhoneNumberChange="" onPhoneNumberBlur="" inputClassName={"form-control"} style={{width:"100%"}} fieldName={"tel"} />
+                                <PhoneInput country={'au'} inputClassName={"form-control"} inputStyle={{width:"100%"}} inputProps={{name: 'tel', required: true}} />
                                 <br/>
                                 <br/>
                                 <textarea rows="6" cols="50" className="form-control" placeholder="Message"></textarea>

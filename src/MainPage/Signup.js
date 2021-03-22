@@ -3,7 +3,6 @@ import {ActionCreators} from '../redux/reducer/AppReducer'
 import Header from "./Header";
 import React, {useEffect, useState} from "react";
 import Footer from "./Footer";
-import IntlTelInput from "react-intl-tel-input";
 import ReCAPTCHA from "react-google-recaptcha";
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.min.css';
@@ -11,6 +10,8 @@ import serialize from "form-serialize";
 import alertify from 'alertifyjs';
 import md5 from 'md5';
 import moment from 'moment';
+import PhoneInput from 'react-phone-input-2'
+import 'react-phone-input-2/lib/style.css'
 
 React.Component.prototype.$md5 = md5;
 
@@ -97,7 +98,7 @@ function Signup(props) {
                         <input type="email" name="email" className="form-control" placeholder="Email" required/>
                         <p style={{color: "red",fontSize: "14px"}}>{error}</p>
                         <label>Mobile</label>
-                        <IntlTelInput preferredCountries={['au']} onPhoneNumberChange="" onPhoneNumberBlur="" inputClassName={"form-control"} style={{width: "100%"}} fieldName={"tel"}/>
+                        <PhoneInput country={'au'} inputClassName={"form-control"} inputStyle={{width: "100%"}} inputProps={{name: 'tel', required: true}} />
                         <label>Password</label>
                         <input type="password" name="password" className="form-control" placeholder="Password" required/>
                         <label>Confirm password</label>

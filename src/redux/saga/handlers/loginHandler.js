@@ -1,5 +1,5 @@
 import {call,put} from "redux-saga/effects";
-import {checkUserLoginRequest,proccessLoginRequest,processLogoutRequest,proccessSignupRequest} from "../requests/loginRequest";
+import {checkUserLoginRequest,proccessLoginRequest,processLogoutRequest,proccessSignupRequest,processVerifyEmailRequest} from "../requests/loginRequest";
 import {ActionCreators} from "../../reducer/AppReducer";
 
 export function* checkUserLogin() {

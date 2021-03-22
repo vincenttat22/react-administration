@@ -1,6 +1,5 @@
 import React, {useEffect} from "react";
 import {Switch, Route} from "react-router-dom";
-import 'react-intl-tel-input/dist/main.css'
 import Home from "./Home";
 import Pricing from "./Pricing";
 import Features from "./Features";
