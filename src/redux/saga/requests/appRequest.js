@@ -1,11 +1,10 @@
 import axios from 'axios';
-const apiURL = "http://api.vincentlab.xyz:3001";
 
 
 export function getCuisineRequest() {
     return axios.request({
         method:"get",
-        url:apiURL+"/getCuisine"
+        url:"/getCuisine"
     })
 }
 
@@ -22,7 +21,7 @@ export function addCuisineRequest(params) {
             data.append(key, value)
         }
     }
-    return axios.post(apiURL+'/addCuisine', data)
+    return axios.post('/addCuisine', data)
 }
 
 
