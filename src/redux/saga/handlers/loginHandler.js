@@ -5,7 +5,8 @@ import {ActionCreators} from "../../reducer/AppReducer";
 export function* checkUserLogin() {
     try {
         const response = yield call(checkUserLoginRequest);
-        yield put(ActionCreators.setLoginStatus(response.data));
+        const responseBody = yield response.json();
+        yield put(ActionCreators.setLoginStatus(responseBody));
     } catch (error) {
         console.log(error)
     }

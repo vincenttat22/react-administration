@@ -1,10 +1,8 @@
 import axios from 'axios';
-const apiURL = "http://api.vincentlab.xyz:3001";
+const apiURL = "//api.vincentlab.xyz:3001";
 export function checkUserLoginRequest() {
-    return axios.request({
-        method:"get",
-        url:"/checkLogin"
-    })
+    return fetch(apiURL+"/checkLogin")
+
 }
 export function processVerifyEmailRequest(loginData) {
     return axios.post(apiURL+'/processVerifyEmail', loginData)
