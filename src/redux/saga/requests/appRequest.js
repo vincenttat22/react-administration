@@ -1,15 +1,15 @@
 import axios from 'axios';
+const apiURL = "http://api.vincentlab.xyz:3001";
 
 
 export function getCuisineRequest() {
     return axios.request({
         method:"get",
-        url:"/getCuisine"
+        url:apiURL+"/getCuisine"
     })
 }
 
 export function addCuisineRequest(params) {
-    // console.log(params);
     const data = new FormData();
     for (let [key, value] of Object.entries(params)) {
         if(key === 'file') {
@@ -22,7 +22,7 @@ export function addCuisineRequest(params) {
             data.append(key, value)
         }
     }
-    return axios.post('/addCuisine', data)
+    return axios.post(apiURL+'/addCuisine', data)
 }
 
 
